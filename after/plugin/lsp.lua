@@ -1,7 +1,6 @@
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
   local nmap = function(keys, func, desc)
     if desc then
       desc = "LSP: " .. desc
@@ -13,6 +12,10 @@ lsp_zero.on_attach(function(client, bufnr)
   nmap("gd", vim.lsp.buf.definition, "Goto Definition")
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
   nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
+  nmap("<localleader>a", vim.lsp.buf.code_action, "Code Action")
+  nmap("<localleader>m", vim.lsp.buf.rename, "Rename")
+  nmap("<F2>", vim.lsp.buf.rename, "Rename")
+  vim.keymap.set({ "n", "v" }, "<F3>", vim.lsp.buf.format, { desc = "LSP: Format" })
   vim.keymap.set({ "n", "v" }, "<localleader>f", function()
     require("conform").format({ async = true, lsp_fallback = true })
   end, { desc = "format" })
@@ -20,7 +23,7 @@ end)
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-  ensure_installed = { "tsserver", "html" },
+  ensure_installed = { "tsserver", "html", "graphql" },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()

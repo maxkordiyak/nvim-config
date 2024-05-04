@@ -4,9 +4,9 @@ require("lualine").setup({
     lualine_a = { { "mode", upper = true } },
     lualine_b = { { "branch", icon = "" } },
     lualine_c = {
-      { "filename", file_status = true },
+      { "filename", path = 1, file_status = true },
       require('lsp-progress').progress,
-      "g:metals_status" },
+    },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = { "progress" },
     lualine_z = { "location" },

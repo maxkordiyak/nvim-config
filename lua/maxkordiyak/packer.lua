@@ -1,4 +1,4 @@
--- Tshis file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -24,7 +24,8 @@ return require("packer").startup(function(use)
   use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
   use { "mfussenegger/nvim-lint", config = function()
-    require("lint").linters_by_ft = { markdown = { "vale", } }
+    require("lint").linters_by_ft = {
+      markdown = { "vale", } }
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, { callback = function() require('lint').try_lint() end, })
   end }
 

@@ -14,3 +14,6 @@ vim.opt.list = true         -- Show some invisible characters (tabs...)
 vim.opt.wrap = false        -- Disable line wrap
 vim.opt.number = true       -- Print line number
 vim.opt.swapfile = false
+
+vim.opt.conceallevel = 2 -- Hide * markup for bold and italic (Neorg)
+

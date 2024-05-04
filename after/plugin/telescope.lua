@@ -48,8 +48,7 @@ vim.keymap.set("n", "<leader>/", function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = "Search Files" })
-
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Search Files" })
 vim.keymap.set("n", "<leader>fa", function() telescope_builtin.find_files({ no_ignore = true, hidden = true }) end,
   { desc = "Find all files" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Search Help" })
@@ -65,6 +64,8 @@ vim.keymap.set("n", "<leader>fo", telescope_builtin.oldfiles, { desc = "Find rec
 vim.keymap.set("n", "<leader>ft", telescope_builtin.treesitter, { desc = "Search Treesitter" })
 vim.keymap.set("n", "gr", telescope_builtin.lsp_references, { desc = "Goto References" })
 vim.keymap.set("n", "gI", telescope_builtin.lsp_implementations, { desc = "Goto Implementation" })
+vim.keymap.set("n", "<leader>D", telescope_builtin.lsp_type_definitions, { desc = "Type Definition" })
+vim.keymap.set("n", "<leader>ds", telescope_builtin.lsp_document_symbols, { desc = "Document Symbols" })
 
 -- [g] GIT KEYBINDINGS
 

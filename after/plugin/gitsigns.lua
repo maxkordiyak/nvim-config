@@ -1,4 +1,4 @@
-require "gitsigns".setup({
+require("gitsigns").setup({
   -- See `:help gitsigns.txt`
   signs = {
     add = { text = '+' },
