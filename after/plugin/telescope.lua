@@ -42,19 +42,20 @@ vim.keymap.set("n", "<leader>?", telescope_builtin.man_pages, { desc = "[?] Find
 vim.keymap.set("n", "<leader><space>", telescope_builtin.buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
-  telescope_builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+  telescope_builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
     winblend = 10,
     previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
+  }))
+end, { desc = "[/] Fuzzily search in current buffer" })
 
 vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Search Files" })
-vim.keymap.set("n", "<leader>fa", function() telescope_builtin.find_files({ no_ignore = true, hidden = true }) end,
-  { desc = "Find all files" })
+vim.keymap.set("n", "<leader>fa", function()
+  telescope_builtin.find_files({ no_ignore = true, hidden = true })
+end, { desc = "Find all files" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Search Help" })
 vim.keymap.set("n", "<leader>fw", telescope_builtin.grep_string, { desc = "Search current Word" })
 vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Search by Grep" })
-vim.keymap.set("n", "<leader>fG", ':LiveGrepGitRoot<cr>', { desc = "Search by Grep on Git Root" })
+vim.keymap.set("n", "<leader>fG", ":LiveGrepGitRoot<cr>", { desc = "Search by Grep on Git Root" })
 vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, { desc = "Search Diagnostics" })
 vim.keymap.set("n", "<leader>fr", telescope_builtin.resume, { desc = "Search Resume" })
 vim.keymap.set("n", "<leader>fc", telescope_builtin.commands, { desc = "Search Commands" })
@@ -77,7 +78,7 @@ vim.keymap.set("n", "<leader>gs", telescope_builtin.git_status, { desc = "Git St
 -- [t] Toggle
 vim.keymap.set("n", "<leader>tb", "<cmd>GitBlameToggle<cr>", { desc = "Toggle git [b]lame" })
 
-local telescope = require("telescope");
+local telescope = require("telescope")
 local actions = require("telescope.actions")
 telescope.setup({
   defaults = {

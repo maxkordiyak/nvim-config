@@ -16,4 +16,3 @@ vim.opt.number = true       -- Print line number
 vim.opt.swapfile = false
 
 vim.opt.conceallevel = 2 -- Hide * markup for bold and italic (Neorg)
-
