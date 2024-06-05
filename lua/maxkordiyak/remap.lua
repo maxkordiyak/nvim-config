@@ -1,39 +1,39 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Use move command to move lines of code down when highlighted
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Use move command to move lines of code up when highlighted
-vim.keymap.set("n", "J", "mzJ`z")            -- Keep the cursor in same place after we append line below to the current line
-vim.keymap.set("n", "<C-d>", "<C-d>zz")      -- Keep cursor in the middle while jumping down
-vim.keymap.set("n", "<C-u>", "<C-u>zz")      -- Keep cursor in the middle while jumping up
-vim.keymap.set("n", "n", "nzzzv")            -- Keep search terms in the middle
-vim.keymap.set("n", "N", "Nzzzv")
+local map = vim.keymap.set
+
+map("v", "J", ":m '>+1<CR>gv=gv") -- Use move command to move lines of code down when highlighted
+map("v", "K", ":m '<-2<CR>gv=gv") -- Use move command to move lines of code up when highlighted
+map("n", "J", "mzJ`z") -- Keep the cursor in same place after we append line below to the current line
+map("n", "<C-d>", "<C-d>zz") -- Keep cursor in the middle while jumping down
+map("n", "<C-u>", "<C-u>zz") -- Keep cursor in the middle while jumping up
+map("n", "n", "nzzzv") -- Keep search terms in the middle
+map("n", "N", "Nzzzv")
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+map("x", "<leader>p", [["_dP]])
 
 -- Yank into the system clipoard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+map("n", "<leader>y", '"+y')
+map("v", "<leader>y", '"+y')
+map("n", "<leader>Y", '"+Y')
 
 -- Delete into void register
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
+map("n", "<leader>d", '"_d')
+map("v", "<leader>d", '"_d')
 
-vim.keymap.set("i", "<C-c>", "<Esc>")
+map("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+map("n", "Q", "<nop>")
+map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Quickfix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+map("n", "<C-k>", "<cmd>cnext<CR>zz")
+map("n", "<C-j>", "<cmd>cprev<CR>zz")
 
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
-local map = vim.keymap.set
+map("n", "<leader>k", "<cmd>lnext<CR>zz")
+map("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- [w] WINDOW MANAGEMENT
 map("n", "<leader>wh", "<C-W>h", { desc = "Go Left" })
@@ -63,3 +63,6 @@ map("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 map("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<leader>bb", ":Telescope buffers<CR>", { desc = "Switch buffer" })
 map("n", "<leader>cf", "<cmd>edit $MYVIMRC<CR>", { desc = "open init.lua" })
+
+-- MISC
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
