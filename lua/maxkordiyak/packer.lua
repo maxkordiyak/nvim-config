@@ -24,7 +24,10 @@ return require("packer").startup(function(use)
 
   use("nvim-tree/nvim-web-devicons")
 
-  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  })
 
   use({
     "mfussenegger/nvim-lint",
@@ -68,7 +71,12 @@ return require("packer").startup(function(use)
       -- LSP Support
       { "neovim/nvim-lspconfig" },
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
+      {
+        "hrsh7th/nvim-cmp",
+        config = function()
+          require("cmp").setup()
+        end,
+      },
       { "hrsh7th/cmp-nvim-lsp" },
       { "L3MON4D3/LuaSnip" },
     },
